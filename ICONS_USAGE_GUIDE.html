@@ -1,0 +1,155 @@
+<!-- Guide d'Utilisation des Icones SVG Entre'Prieur -->
+
+<!-- 
+    COMMENT UTILISER LES ICONES PROFESSIONNELLES
+    =============================================
+    
+    1. Les icones SVG sont définis dans le fichier: icons.svg
+    2. Ils sont inclus automatiquement dans tous les fichiers HTML
+    3. Utilisez les icones en créant une balise <svg> avec <use>
+    
+    EXEMPLES D'UTILISATION:
+    ======================
+-->
+
+<!-- Exemple 1: Icone Vision (taille normale) -->
+<div class="icon icon-primary">
+    <svg viewBox="0 0 24 24">
+        <use href="icons.svg#icon-vision"></use>
+    </svg>
+</div>
+
+<!-- Exemple 2: Icone Discipline (grande taille) -->
+<div class="icon icon-lg icon-gold">
+    <svg viewBox="0 0 24 24">
+        <use href="icons.svg#icon-discipline"></use>
+    </svg>
+</div>
+
+<!-- Exemple 3: Icone Email (petite taille) -->
+<div class="icon icon-sm icon-dark">
+    <svg viewBox="0 0 24 24">
+        <use href="icons.svg#icon-email"></use>
+    </svg>
+</div>
+
+<!-- 
+    CLASSES DISPONIBLES:
+    ===================
+    
+    Tailles:
+    --------
+    .icon-sm    : Petite icone (1em)
+    .icon       : Taille normale (1.5em) - défaut
+    .icon-lg    : Grande icone (2em)
+    .icon-xl    : Très grande icone (3em)
+    
+    Couleurs:
+    ---------
+    .icon-primary   : Bleu Marine (#1e3a8a)
+    .icon-gold      : Or (#d4af37)
+    .icon-white     : Blanc (#ffffff)
+    .icon-dark      : Gris foncé (#1f2937)
+    
+    ICONES DISPONIBLES:
+    ==================
+    
+    1. icon-vision          → Oeil (Vision)
+    2. icon-discipline      → Cible (Discipline)
+    3. icon-excellence      → Étoile (Excellence)
+    4. icon-impact          → Cœur (Impact)
+    5. icon-community       → Utilisateurs (Communauté)
+    6. icon-innovation      → Ampoule (Innovation)
+    7. icon-email           → Enveloppe (Email)
+    8. icon-phone           → Téléphone (Téléphone)
+    9. icon-location        → Géolocalisation (Lieu)
+    10. icon-social         → Réseau (Social)
+    11. icon-calendar       → Calendrier (Événement)
+    12. icon-arrow-right    → Flèche droite
+    13. icon-check          → Cocher (Validation)
+    
+    EXEMPLE D'INTÉGRATION DANS HTML:
+    ================================
+-->
+
+<!-- Exemple HTML complet - Section Piliers -->
+<section class="pillars">
+    <div class="container">
+        <h2>Les 4 Piliers de Entre'Prieur</h2>
+        <div class="pillars-grid">
+            
+            <!-- Pilier 1 -->
+            <div class="pillar-card">
+                <div class="pillar-icon">
+                    <svg class="icon icon-lg icon-primary" viewBox="0 0 24 24">
+                        <use href="icons.svg#icon-vision"></use>
+                    </svg>
+                </div>
+                <h3>Vision</h3>
+                <p>Créer une communauté d'entrepreneurs guidés par la foi et l'excellence</p>
+            </div>
+            
+            <!-- Pilier 2 -->
+            <div class="pillar-card">
+                <div class="pillar-icon">
+                    <svg class="icon icon-lg icon-primary" viewBox="0 0 24 24">
+                        <use href="icons.svg#icon-discipline"></use>
+                    </svg>
+                </div>
+                <h3>Discipline</h3>
+                <p>Développer des habitudes et pratiques pour la réussite durable</p>
+            </div>
+            
+            <!-- Pilier 3 -->
+            <div class="pillar-card">
+                <div class="pillar-icon">
+                    <svg class="icon icon-lg icon-primary" viewBox="0 0 24 24">
+                        <use href="icons.svg#icon-excellence"></use>
+                    </svg>
+                </div>
+                <h3>Excellence</h3>
+                <p>Viser l'excellence dans tout ce que nous faisons</p>
+            </div>
+            
+            <!-- Pilier 4 -->
+            <div class="pillar-card">
+                <div class="pillar-icon">
+                    <svg class="icon icon-lg icon-primary" viewBox="0 0 24 24">
+                        <use href="icons.svg#icon-impact"></use>
+                    </svg>
+                </div>
+                <h3>Impact</h3>
+                <p>Créer une valeur durable pour la société et l'économie</p>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- 
+    NOTES IMPORTANTES:
+    =================
+    
+    1. Les fichiers HTML incluent déjà: <link rel="stylesheet" href="icons.svg">
+    2. Ne pas modifier les IDs des icones dans icons.svg
+    3. Pour ajouter des icones: éditer icons.svg et ajouter une nouvelle <symbol>
+    4. Les classes CSS pour icones sont dans css/styles.css
+    5. Compatible avec tous les navigateurs modernes
+    
+    RESPONSIVENESS:
+    ==============
+    
+    Les icones SVG s'adaptent automatiquement:
+    - Utilisez les classes de taille (.icon-sm, .icon-lg, etc.)
+    - Combinables avec des media queries CSS
+    - Scalables sans perte de qualité
+    
+    PERFORMANCE:
+    ============
+    
+    - Fichier SVG externe = meilleure mise en cache
+    - Inline SVG ou <use> = meilleure performance
+    - Compression GZIP recommandée
+    - Poids minime (<5KB)
+    
+-->

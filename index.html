@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre'Prieur - Rendez-vous des entrepreneurs chrétiens. Quand la foi guide l'action.">
+    <meta name="theme-color" content="#1e3a8a">
+    <title>Entre'Prieur - Accueil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- ============ EN-TÊTE NAVIGATION ============ -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo-container">
+                    <a href="index.html" class="logo">
+                        <span class="logo-text">Entre'Prieur</span>
+                    </a>
+                </div>
+
+                <!-- Bouton Menu Mobile -->
+                <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- Menu de Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link active">Accueil</a></li>
+                    <li><a href="vision.html" class="nav-link">Vision</a></li>
+                    <li><a href="evenements.html" class="nav-link">Événements</a></li>
+                    <li><a href="rejoindre.html" class="nav-link">Rejoindre</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============ SECTION HÉROS ============ -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Quand la foi guide l'action</h1>
+            <p class="hero-subtitle">L'entrepreneuriat gagne en sens et en impact</p>
+            <div class="hero-buttons">
+                <a href="rejoindre.html" class="btn btn-primary">Candidater maintenant</a>
+                <a href="vision.html" class="btn btn-secondary">Découvrir la vision</a>
+            </div>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- ============ PROCHAIN ÉVÉNEMENT ============ -->
+    <section class="next-event">
+        <div class="container">
+            <h2 class="section-title">Prochain événement</h2>
+            <div class="featured-event-wrapper">
+                <!-- Affiche de l'événement (gauche) -->
+                <div class="event-poster-side">
+                    <div class="poster-container">
+                        <img id="eventPoster" src="img/Affiche28Janvier.png" alt="Affiche de l'événement" class="event-poster-image">
+                        <div class="poster-overlay"></div>
+                    </div>
+                </div>
+
+                <!-- Infos de l'événement (droite) -->
+                <div class="event-info-side">
+                    <div class="event-card featured">
+                        <!-- Badge "WOW" -->
+                        <div class="wow-badge">
+                            <i class="fas fa-circle-play"></i> PROCHAIN
+                        </div>
+
+                        <!-- Badge "Affiche en attente" -->
+                        <div id="posterStatusBadge" class="poster-status-badge pending">
+                            <i class="fas fa-hourglass-start"></i> Affiche en attente
+                        </div>
+
+                        <!-- Titre -->
+                        <h3 id="eventTitle" class="event-title-large">Brunch Entre'Prieur</h3>
+
+                        <!-- Date badge -->
+                        <div class="date-display">
+                            <span id="eventDateBadge" class="event-date-badge-large">28 février 2026</span>
+                        </div>
+
+                        <!-- Countdown WOW -->
+                        <div class="countdown-container">
+                            <h4>COMPTE À REBOURS</h4>
+                            <div class="countdown-timer">
+                                <div class="countdown-item">
+                                    <span id="countdownDays" class="countdown-value">34</span>
+                                    <span class="countdown-label">Jours</span>
+                                </div>
+                                <div class="countdown-divider">:</div>
+                                <div class="countdown-item">
+                                    <span id="countdownHours" class="countdown-value">15</span>
+                                    <span class="countdown-label">Heures</span>
+                                </div>
+                                <div class="countdown-divider">:</div>
+                                <div class="countdown-item">
+                                    <span id="countdownMinutes" class="countdown-value">42</span>
+                                    <span class="countdown-label">Minutes</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Détails de l'événement -->
+                        <div class="event-details-premium">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <span class="detail-label">Lieu</span>
+                                    <span id="eventLocation" class="detail-value">Pointe-Noire, Congo</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-watch"></i>
+                                <div>
+                                    <span class="detail-label">Horaire</span>
+                                    <span id="eventTime" class="detail-value">9:00 - 13:00</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <div>
+                                    <span class="detail-label">Tarif</span>
+                                    <span id="eventPrice" class="detail-value">10 000 FCFA</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <span class="detail-label">Places</span>
+                                    <span id="eventPlaces" class="detail-value">50 places limitées</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a href="rejoindre.html" class="btn btn-primary btn-cta-event">
+                            <span>S'inscrire maintenant</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+
+                        <!-- Lien vers tous les événements -->
+                        <a href="evenements.html" class="event-link-more">Voir tous les événements →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 4 PILIERS ============ -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Les 4 Piliers de Entre'Prieur</h2>
+                <p>Les fondations qui structurent notre communauté et notre impact</p>
+            </div>
+            <div class="benefits-grid">
+                <!-- Pilier 1: Vision -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3>Vision</h3>
+                    <p>Une communauté d'entrepreneurs chrétiens unis par les valeurs de foi, discipline et excellence, créant ensemble l'avenir.</p>
+                </div>
+
+                <!-- Pilier 2: Discipline -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hourglass-end"></i>
+                    </div>
+                    <h3>Discipline</h3>
+                    <p>L'engagement constant à développer nos entreprises avec intégrité, rigueur et responsabilité envers notre vision.</p>
+                </div>
+
+                <!-- Pilier 3: Foi -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <h3>Foi</h3>
+                    <p>La conviction que notre action commerciale est guidée par des principes spirituels forts et inébranlables.</p>
+                </div>
+
+                <!-- Pilier 4: Impact -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Impact</h3>
+                    <p>Créer une différence positive dans nos communautés et contribuer au développement durable de l'Afrique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============ AFFICHES INSTAGRAM ============ -->
+    <section class="social-posts-section">
+        <div class="container">
+            <h2 class="section-title">Affiches Instagram</h2>
+            <div class="social-posts-grid">
+                <a href="https://www.instagram.com/p/DTpVCqDCMHs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="social-post-card">
+                    <img src="img/Affiches-de-posts1.jpg" alt="Affiche Instagram 1" />
+                </a>
+                <a href="https://www.instagram.com/p/DTpVCqDCMHs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="social-post-card">
+                    <img src="img/Affiches-de-posts3.jpg" alt="Affiche Instagram 3" />
+                </a>
+                <a href="https://www.instagram.com/p/DTpVCqDCMHs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="social-post-card">
+                    <img src="img/FLYERS.jpg" alt="Affiche Instagram 2" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECTION NEWSLETTER ============ -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Restez informé</h2>
+                    <p>Abonnez-vous à notre newsletter pour recevoir nos dernières actualités, conseils entrepreneuriaux et invitations aux événements.</p>
+                </div>
+                <form class="newsletter-form" action="https://formspree.io/f/xyzabc123" method="POST">
+                    <div class="form-group newsletter-group">
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Votre adresse email" 
+                            required 
+                            aria-label="Adresse email pour la newsletter"
+                        >
+                        <button type="submit" class="btn btn-primary">S'abonner</button>
+                    </div>
+                    <p class="newsletter-notice">Nous respectons votre vie privée. Désinscription facile à tout moment.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ IMPACT STATS ============ -->
+    <section class="stats-section" style="margin-bottom: 0;">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Événements en 2026</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Piliers Fondamentaux</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Valeurs Cardinales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Potentiel d'Impact</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PARTENAIRES & CRÉDIBILITÉ ============ -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Porté par les Leaders Africains</h2>
+                <p>Entre'Prieur est soutenu par les meilleures initiatives d'entrepreneuriat et de développement</p>
+            </div>
+            <div class="partners-grid">
+                <a href="https://www.instagram.com/mon.equilibre_?igsh=MW03MzV4MjlycXQyOQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="partner-card">
+                    <div class="partner-logo-container">
+                        <img src="img/LOGO_DE_MON_EQUILIBRE.png" alt="Mon Équilibre - Partenaire Principal">
+                    </div>
+                    <h3>Mon Équilibre</h3>
+                    <p>Initiative dédiée à l'équilibre holistique des entrepreneurs africains.</p>
+                    <div class="partner-cta">
+                        <i class="fas fa-arrow-up-right"></i> Suivre
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/ma_s242?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="partner-card">
+                    <div class="partner-logo-container">
+                        <img src="img/LogoMASnew_Parters.png" alt="MA'S Butik - Partenaire">
+                    </div>
+                    <h3>MA'S Butik</h3>
+                    <p>Boutique en ligne de vente d'agendas de planification, articles de rangement, gourdes isothermes et bien plus.</p>
+                    <div class="partner-cta">
+                        <i class="fas fa-arrow-up-right"></i> Découvrir
+                    </div>
+                </a>
+
+
+                <a href="https://www.youtube.com/@DGClubOfficiel" target="_blank" rel="noopener" class="partner-card">
+                    <div class="partner-logo-container">
+                        <img src="img/Logo_DG_Club.png" alt="DG Club - Partenaire">
+                    </div>
+                    <h3>DG Club</h3>
+                    <p>Communauté de développeurs et leaders technologiques africains.</p>
+                    <div class="partner-cta">
+                        <i class="fas fa-arrow-up-right"></i> Découvrir
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECTION APPEL À L'ACTION ============ -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Rejoignez notre communauté</h2>
+            <p>Que vous soyez entrepreneur, ou aspiriez à l'être, Entre'Prieur est votre espace de croissance.</p>
+            <a href="rejoindre.html" class="btn btn-primary">Candidater maintenant</a>
+        </div>
+    </section>
+
+    <!-- ============ COMPTEUR DE VISITES ============ -->
+    <div class="visit-counter" id="visitCounter">
+        Vous êtes visiteur n°<span id="visitCount">0</span>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Section 1: À propos -->
+                <div class="footer-section">
+                    <h4>Entre'Prieur</h4>
+                    <p>Rendez-vous des entrepreneurs chrétiens où la foi guide l'action.</p>
+                    <p class="footer-credit">Projet porté par <strong>Mon Équilibre</strong></p>
+                    <div style="background: rgba(255, 253, 253, 0.527); border-radius: 6px; width: 100px;" class="partners-logos">
+                    <a href="https://www.instagram.com/mon.equilibre_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="partner-logo" title="Mon Équilibre">
+                            <img class="img" src="img/LOGO_DE_MON_EQUILIBRE.png" alt="Mon Équilibre">
+                    </a>
+                    </div>
+
+                </div>
+
+                <!-- Section 2: Liens rapides -->
+                <div class="footer-section">
+                    <h4>Accès rapide</h4>
+                    <ul class="footer-links">
+                        <li><a href="vision.html">Notre Vision</a></li>
+                        <li><a href="evenements.html">Événements</a></li>
+                        <li><a href="rejoindre.html">Rejoindre</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section 3: Contact -->
+                <div class="footer-section">
+                    <h4>Nous contacter</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:monequilibre242@gmail.com">monequilibre242@gmail.com</a></li>
+                        <li><a href="tel:068673747">068 673 747</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section 4: Réseaux sociaux -->
+                <div class="footer-section">
+                    <h4>Nous suivre</h4>
+                    <div class="social-links">
+                        <a class="social-icon" href="https://www.instagram.com/mon.equilibre_?igsh=MW03MzV4MjlycXQyOQ%3D%3D&utm_source=qr" aria-label="Instagram" target="_blank" rel="noopener">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a class="social-icon" href="https://www.tiktok.com/@mon.equilibre5?_r=1&_t=ZM-9336uxvXn9U" aria-label="TikTok" target="_blank" rel="noopener">
+                            <i class="fab fa-tiktok" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Section 5: Partenaires -->
+                <div class="footer-section">
+                    <h4>Partenaires</h4>
+                    <div style="background: white; border-radius: 6px; display: flex; justify-content: center; align-items: center;"  class="partners-logos">
+                        <a href="https://www.instagram.com/mon.equilibre_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="partner-logo" title="Mon Équilibre">
+                            <img src="img/LOGO_DE_MON_EQUILIBRE.png" alt="Mon Équilibre">
+                        </a>
+                        <a href="" class="partner-logo" title="MA'S">
+                            <img src="img/LogoMASnew_Parters.png" alt="MA'S">
+                        </a>
+                        <a href="https://www.youtube.com/@DGClubOfficiel" class="partner-logo" title="DG Club">
+                            <img src="img/Logo_DG_Club.png" alt="DG Club">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Entre'Prieur. Tous droits réservés.</p>
+                <p>Développé par <strong>DG Club</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inclusion des icones SVG -->
+    <link rel="stylesheet" href="icons.svg">
+
+    <!-- Scripts - Données événements -->
+    <script src="js/events-data.js"></script>
+    <!-- Scripts - Main -->
+    <script src="js/script.js"></script>
+</body>
+</html>
