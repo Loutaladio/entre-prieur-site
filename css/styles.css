@@ -247,9 +247,9 @@ section {
         padding: 1rem 20px;
     }
 
-    .nav-link.active::after {
+    /* .nav-link.active::after {
         display: none;
-    }
+    } */
 
     .nav-link.active {
         background-color: #f1c40f;
