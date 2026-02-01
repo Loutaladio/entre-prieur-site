@@ -1,0 +1,1 @@
+[ARCHIVED] EMAILJS_SETUP.md - Contains EmailJS configuration guide

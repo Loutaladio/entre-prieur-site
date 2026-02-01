@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Candidatez pour rejoindre Entre'Prieur - Candidature pour entrepreneurs chrétiens">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>Rejoindre - Entre'Prieur</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +46,7 @@
                 <p class="lead">Intégrez une communauté d'entrepreneurs chrétiens passionnés par le succès ET les valeurs</p>
                 <a href="#application-form" class="btn btn-primary btn-large">
                     <i class="fas fa-rocket"></i>
-                    Commencer mon inscription
+                    Commencer mon adhésion
                 </a>
             </div>
         </div>
@@ -154,7 +155,11 @@
                         <p>Remplissez quelques informations essentielles</p>
                     </div>
                     
-                    <form id="applicationForm" class="application-form-modern" novalidate>
+                    <form id="applicationForm" class="form" action="https://formspree.io/f/mdadolov"
+  method="POST" novalidate>
+                        <div id="formSuccessMessage" class="success-message" style="display: none;">
+                            <i class="fas fa-check-circle"></i> Merci ! Votre candidature a été reçue avec succès.
+                        </div>
                         <!-- ROW 1: Infos basiques -->
                         <div class="form-row">
                             <div class="form-group">
@@ -162,7 +167,7 @@
                                 <input 
                                     type="text" 
                                     id="fullName" 
-                                    name="fullName" 
+                                    name="Nom complet" 
                                     required 
                                     placeholder="Mima Steeve"
                                     aria-required="true"
@@ -176,6 +181,7 @@
                                     type="email" 
                                     id="email" 
                                     name="email" 
+                                    name="_replyto"
                                     required 
                                     placeholder="vous@email.com"
                                     aria-required="true"
@@ -289,7 +295,7 @@
 
                         <!-- Checkboxes -->
                         <div class="form-checkboxes">
-                            <div class="checkbox-group">
+                            <div class="form-group checkbox">
                                 <input 
                                     type="checkbox" 
                                     id="values" 
@@ -301,7 +307,7 @@
                                 <span class="error-message" id="valuesError"></span>
                             </div>
 
-                            <div class="checkbox-group">
+                            <div class="form-group checkbox">
                                 <input 
                                     type="checkbox" 
                                     id="newsletter" 
@@ -313,23 +319,14 @@
                         </div>
 
                         <!-- CTA -->
-                        <button type="submit" class="btn btn-primary btn-large btn-block">
+                        <button type="submit" value="send" class="btn btn-primary btn-large btn-block">
                             <i class="fas fa-paper-plane"></i>
                             Envoyer ma candidature
                         </button>
-
-                        <!-- Message de succès -->
-                        <div id="successMessage" class="success-message" style="display: none;">
-                            <i class="fas fa-check-circle"></i> 
-                            <div>
-                                <strong>Excellent!</strong> Votre candidature est reçue. Nous vous contactons dans 7 jours.
-                            </div>
-                        </div>
                     </form>
                 </div>
             </section>
 
-            <!-- Section Questions Fréquentes -->
             <section class="faq-section">
                 <h2>Questions fréquemment posées</h2>
                 <div class="faq-container">
@@ -400,7 +397,7 @@
                     <h4>Nous contacter</h4>
                     <ul class="footer-links">
                         <li><a href="mailto:monequilibre242@gmail.com">monequilibre242@gmail.com</a></li>
-                        <li><a href="tel:068673747">068 673 747</a></li>
+                        <li><a href="tel:00242 06 867 37 47">00242 06 867 37 47</a></li>
                     </ul>
                 </div>
 
@@ -429,6 +426,9 @@
                         </a>
                         <a href="https://www.youtube.com/@DGClubOfficiel" class="partner-logo" title="DG Club">
                             <img src="img/Logo_DG_Club.png" alt="DG Club">
+                        </a>
+                        <a href="#" class="partner-logo" title="DigiArt Pro">
+                            <img src="img/logo%20digiart%20pro.png" alt="DigiArt Pro" loading="lazy">
                         </a>
                     </div>
                 </div>

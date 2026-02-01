@@ -9,7 +9,56 @@
 }
 
 img{
-    width: 99px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Logos partenaires (footer) - taille contrôlée et responsive */
+.partners-logos{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.partners-logos .partner-logo,
+.partners-logos a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partners-logos .partner-logo img,
+.partners-logos img{
+    width: 88px;
+    height: auto;
+    object-fit: contain;
+    display: inline-block;
+    max-height: 100px;
+}
+
+@media (max-width: 768px) {
+    .partners-logos{
+        gap: 8px;
+    }
+    
+    .partners-logos .partner-logo img,
+    .partners-logos img{
+        width: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partners-logos{
+        gap: 6px;
+    }
+    
+    .partners-logos .partner-logo img,
+    .partners-logos img{
+        width: 60px;
+    }
 }
 
 html {
@@ -1918,8 +1967,19 @@ section {
 }
 
 .poster-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e0e8f0 100%);
+    color: #9ca3af;
     font-size: 3rem;
-    opacity: 0.4;
+    opacity: 1;
+}
+
+.poster-placeholder i {
+    color: #6b7280;
+    font-size: 3rem;
 }
 
 .calendar-event > div:not(.calendar-event-poster) {
@@ -2175,10 +2235,19 @@ legend {
 }
 
 /* Checkboxes */
+.form-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-light);
+}
+
 .form-group.checkbox {
     flex-direction: row;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
 
 .form-group.checkbox input[type="checkbox"] {
@@ -2187,11 +2256,13 @@ legend {
     margin: 0;
     margin-right: 0.75rem;
     cursor: pointer;
+    accent-color: var(--primary-navy);
 }
 
 .form-group.checkbox label {
     margin-bottom: 0;
     cursor: pointer;
+    font-weight: 500;
 }
 
 /* Form Actions */
@@ -3269,13 +3340,15 @@ legend {
     font-size: 1.1rem;
 }
 
-.application-form-modern {
+.application-form-modern,
+.form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-.application-form-modern .form-row {
+.application-form-modern .form-row,
+.form .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
@@ -3373,6 +3446,28 @@ legend {
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
+}
+
+.form .btn-large {
+    width: 100%;
+    padding: 14px 32px;
+    margin-top: 1rem;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    color: white;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form .btn-large:hover {
+    background: linear-gradient(135deg, #0f2847, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(30, 58, 138, 0.3);
+}
+
+.form .btn-large:active {
+    transform: translateY(0);
 }
 
 .application-form-modern .btn-primary {
@@ -3713,7 +3808,8 @@ legend {
         padding: 2rem;
     }
 
-    .application-form-modern .form-row {
+    .application-form-modern .form-row,
+    .form .form-row {
         grid-template-columns: 1fr;
     }
 
@@ -3850,7 +3946,7 @@ legend {
     }
 }
 
-@media (max-width: 480px) {
+    @media (max-width: 480px) {
     .join-hero h1 {
         font-size: 1.5rem;
     }
@@ -3893,5 +3989,23 @@ legend {
     .faq-item p {
         padding: 0 1.25rem 1rem;
         font-size: 0.95rem;
+    }
+
+    /* Amélioration mobile - Formulaires */
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .application-form-modern {
+        padding: 1.5rem;
+    }
+
+    .btn-large {
+        padding: 12px 24px;
+        font-size: 1rem;
     }
 }

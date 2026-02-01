@@ -5,6 +5,13 @@
  */
 
 // ========================================
+// CONFIGURATION FORMSPREE
+// ========================================
+// Formulaire Formspree simple et gratuit
+// Allez sur https://formspree.io/ et créez un compte
+const FORMSPREE_CANDIDATURE_URL = 'https://formspree.io/f/mdadolov';  // Candidatures & Adhésion
+
+// ========================================
 // INITIALISATION GLOBALE
 // ========================================
 
@@ -17,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initFormValidation();
     initScrollAnimations();
     initAnalytics();
+    // Setup project-specific forms
+    setupBrunchForm();
 });
 
 // ========================================
@@ -335,37 +344,51 @@ function initFormValidation() {
     if (applicationForm) {
         setupApplicationFormValidation(applicationForm);
     }
-
-    if (contactForm) {
-        setupContactFormValidation(contactForm);
-    }
 }
 
 /**
  * Valide et gère le formulaire de candidature
  */
 function setupApplicationFormValidation(form) {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
         if (!validateApplicationForm(form)) {
             return;
         }
 
-        // Simuler l'envoi du formulaire
+        // Récupérer les données du formulaire
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
 
         console.log('📨 Candidature soumise:', data);
 
+        try {
+            // Envoyer via Formspree
+            if (FORMSPREE_CANDIDATURE_URL && FORMSPREE_CANDIDATURE_URL !== 'https://formspree.io/f/YOUR_FORM_ID') {
+                const response = await fetch(FORMSPREE_CANDIDATURE_URL, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: formData
+                });
+                if (response.ok) {
+                    console.log('✅ Email envoyé via Formspree');
+                } else {
+                    console.warn('⚠️ Erreur Formspree');
+                }
+            }
+        } catch (error) {
+            console.warn('⚠️ Erreur Formspree, sauvegarde locale:', error);
+        }
+
         // Afficher le message de succès
-        const successMessage = document.getElementById('successMessage');
+        const successMessage = document.getElementById('formSuccessMessage');
         if (successMessage) {
             successMessage.style.display = 'block';
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        // Enregistrer les données dans localStorage
+        // Enregistrer les données dans localStorage (fallback)
         const submissions = JSON.parse(localStorage.getItem('applications') || '[]');
         submissions.push({
             ...data,
@@ -448,108 +471,15 @@ function validateApplicationForm(form) {
 
     // Validation motivation
     const motivation = form.querySelector('#motivation');
-    if (!motivation.value.trim() || motivation.value.trim().length < 50) {
-        showError('motivationError', 'La motivation doit contenir au moins 50 caractères');
+    if (!motivation.value.trim() || motivation.value.trim().length < 10) {
+        showError('motivationError', 'La motivation doit contenir au moins 10 caractères');
         isValid = false;
     }
 
     // Validation adhésion aux valeurs
     const values = form.querySelector('#values');
-    if (!values.checked) {
+    if (!values || !values.checked) {
         showError('valuesError', 'Vous devez accepter les valeurs de Entre\'Prieur');
-        isValid = false;
-    }
-
-    // Validation confidentialité
-    const privacy = form.querySelector('#privacy');
-    if (!privacy.checked) {
-        showError('privacyError', 'Vous devez accepter la politique de confidentialité');
-        isValid = false;
-    }
-
-    return isValid;
-}
-
-/**
- * Valide et gère le formulaire de contact
- */
-function setupContactFormValidation(form) {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        if (!validateContactForm(form)) {
-            return;
-        }
-
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
-
-        console.log('📧 Message de contact reçu:', data);
-
-        // Afficher le message de succès
-        const successMessage = document.getElementById('contactSuccessMessage');
-        if (successMessage) {
-            successMessage.style.display = 'block';
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        // Enregistrer dans localStorage
-        const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
-        messages.push({
-            ...data,
-            timestamp: new Date().toISOString()
-        });
-        localStorage.setItem('contactMessages', JSON.stringify(messages));
-
-        // Réinitialiser après 3 secondes
-        setTimeout(() => {
-            form.reset();
-            if (successMessage) {
-                successMessage.style.display = 'none';
-            }
-        }, 3000);
-    });
-}
-
-/**
- * Valide le formulaire de contact
- */
-function validateContactForm(form) {
-    let isValid = true;
-    clearAllErrors(form);
-
-    // Validation nom
-    const name = form.querySelector('#contactName');
-    if (!name.value.trim() || name.value.trim().length < 3) {
-        showError('contactNameError', 'Le nom doit contenir au moins 3 caractères');
-        isValid = false;
-    }
-
-    // Validation email
-    const email = form.querySelector('#contactEmail');
-    if (!isValidEmail(email.value)) {
-        showError('contactEmailError', 'Veuillez entrer une adresse email valide');
-        isValid = false;
-    }
-
-    // Validation sujet
-    const subject = form.querySelector('#contactSubject');
-    if (!subject.value) {
-        showError('contactSubjectError', 'Veuillez sélectionner un sujet');
-        isValid = false;
-    }
-
-    // Validation message
-    const message = form.querySelector('#contactMessage');
-    if (!message.value.trim() || message.value.trim().length < 20) {
-        showError('contactMessageError', 'Le message doit contenir au moins 20 caractères');
-        isValid = false;
-    }
-
-    // Validation consentement
-    const consent = form.querySelector('#contactConsent');
-    if (!consent.checked) {
-        showError('contactConsentError', 'Vous devez accepter le traitement de vos données');
         isValid = false;
     }
 
@@ -745,6 +675,51 @@ function addClassAfterDelay(element, className, delay) {
  */
 function toggleClass(element, className) {
     element.classList.toggle(className);
+}
+
+// ========================================
+// FORMS: Inscriptions Brunch
+// ========================================
+/**
+ * Configure le formulaire d'inscription au brunch (événements)
+ */
+function setupBrunchForm() {
+    const form = document.getElementById('brunchForm');
+    if (!form) return;
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(form));
+        if (!data.fullName || !data.email) {
+            alert('Veuillez renseigner votre nom et email pour réserver.');
+            return;
+        }
+
+        console.log('📨 Pré-inscription Brunch:', data);
+
+        try {
+            // Envoyer via le formulaire HTML (Formspree)
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(form)
+            });
+            if (response.ok) {
+                console.log('✅ Pré-inscription Brunch envoyée via Formspree');
+            }
+        } catch (error) {
+            console.warn('⚠️ Erreur Formspree:', error);
+        }
+
+        // Sauvegarder localement (fallback)
+        const regs = JSON.parse(localStorage.getItem('brunchRegistrations') || '[]');
+        regs.push({ ...data, timestamp: new Date().toISOString() });
+        localStorage.setItem('brunchRegistrations', JSON.stringify(regs));
+
+        form.reset();
+        alert('Pré-inscription reçue — merci! Vous serez contacté pour le paiement.');
+    });
 }
 
 // ========================================

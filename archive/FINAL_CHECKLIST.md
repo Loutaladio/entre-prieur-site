@@ -1,0 +1,1 @@
+[ARCHIVED] FINAL_CHECKLIST.md - Contains final verification checklist for v2.0

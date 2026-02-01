@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Fond bleu marine -->
+  <rect width="64" height="64" fill="#1e3a8a" rx="12"/>
+  
+  <!-- Cercle doré extérieur -->
+  <circle cx="32" cy="32" r="28" fill="none" stroke="#d4af37" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Croix stylisée (foi) -->
+  <g fill="#d4af37">
+    <!-- Barre verticale -->
+    <rect x="28" y="12" width="8" height="40" rx="2"/>
+    <!-- Barre horizontale -->
+    <rect x="12" y="28" width="40" height="8" rx="2"/>
+  </g>
+  
+  <!-- Points dorés aux coins (pour l'élégance) -->
+  <circle cx="18" cy="18" r="2" fill="#d4af37" opacity="0.6"/>
+  <circle cx="46" cy="18" r="2" fill="#d4af37" opacity="0.6"/>
+  <circle cx="18" cy="46" r="2" fill="#d4af37" opacity="0.6"/>
+  <circle cx="46" cy="46" r="2" fill="#d4af37" opacity="0.6"/>
+  
+  <!-- Lueur subtile -->
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.3" filter="url(#glow)"/>
+</svg>

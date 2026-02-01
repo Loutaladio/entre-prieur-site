@@ -1,198 +1,78 @@
-# 📧 Configuration EmailJS - Guide Complet
+# ⚙️ Configuration Formspree (Simple)
 
-## Qu'est-ce que EmailJS ?
+## 📧 Comment Configurer Formspree pour Recevoir les Emails
 
-**EmailJS** permet d'envoyer des emails directement depuis votre site web **sans serveur backend**.
+### Étape 1 : Créer un Compte Formspree
 
-✅ **Gratuit** - 200 emails/mois (largement suffisant)  
-✅ **Simple** - Configuration en 5 minutes  
-✅ **Sécurisé** - Données chiffrées  
+1. Allez sur https://formspree.io/
+2. Cliquez sur **"Sign up"** et créez un compte gratuit
+3. Vérifiez votre email
 
----
+### Étape 2 : Créer un Formulaire pour les Candidatures
 
-## 🚀 Configuration en 5 étapes
+1. Dans le dashboard, cliquez sur **"New Form"**
+2. Donnez-lui le nom : `Candidatures Entre'Prieur`
+3. Cliquez sur **"Create"**
+4. **Copiez l'URL du formulaire** qui ressemble à : `https://formspree.io/f/xxxxxxxxx`
 
-### **Étape 1 : Créer un compte EmailJS**
+### Étape 3 : Créer un Formulaire pour les Contacts
 
-1. Allez sur : https://www.emailjs.com/
-2. Cliquez sur **"Sign Up"**
-3. Choisissez **"Sign up with Gmail"** (le plus simple)
-4. Complétez votre profil
+1. Cliquez à nouveau sur **"New Form"**
+2. Donnez-lui le nom : `Contact Entre'Prieur`
+3. Cliquez sur **"Create"**
+4. **Copiez l'URL du formulaire** qui ressemble à : `https://formspree.io/f/yyyyyyyyy`
 
-✅ **Compte créé !**
+### Étape 4 : Remplir la Configuration dans le Code
 
----
-
-### **Étape 2 : Ajouter un service email**
-
-1. Dans le tableau de bord, cliquez sur **"Email Services"** (dans la barre gauche)
-2. Cliquez sur **"Add Service"**
-3. Choisissez votre fournisseur :
-   - **Gmail** (recommended)
-   - Outlook
-   - Yahoo
-   - Autre
-
-#### Si vous choisissez Gmail :
-1. Cliquez sur **"Gmail"**
-2. Cliquez sur **"Connect Account"**
-3. Sélectionnez votre compte Gmail
-4. Autorisez l'accès
-5. Cliquez sur **"Create Service"**
-
-✅ **Service créé !** (Note: `Service ID` = quelque chose comme `gmail_xxxxxxx`)
-
----
-
-### **Étape 3 : Créer un template d'email**
-
-Un template c'est le "modèle" de votre email.
-
-1. Allez dans **"Email Templates"** (barre gauche)
-2. Cliquez sur **"Create New Template"**
-3. Remplissez :
-
-#### **Nom du template :**
-```
-Entre Prieur - Alerte Affiche
-```
-
-#### **Destinataire (To email) :**
-```
-{{to_email}}
-```
-
-#### **Sujet :**
-```
-🎨 Affiche Entre'Prieur - {{event_title}}
-```
-
-#### **Contenu (corps de l'email) :**
-Copier-coller ceci :
-
-```
-Bonjour,
-
-{{message}}
-
-📅 Détails de l'événement :
-- Titre : {{event_title}}
-- Date : {{event_date}}
-- Heure : {{event_time}}
-
-Merci de vérifier le portail admin pour plus d'infos.
-
-Cordialement,
-Entre'Prieur Admin
-```
-
-4. Cliquez sur **"Save"**
-
-✅ **Template créé !** (Note: `Template ID` = quelque chose comme `template_abc123xyz`)
-
----
-
-### **Étape 4 : Récupérer vos clés**
-
-#### **Service ID :**
-1. Allez dans **"Email Services"**
-2. Cliquez sur le service Gmail que vous avez créé
-3. Vous verrez `Service ID` - copier-le
-
-#### **Template ID :**
-1. Allez dans **"Email Templates"**
-2. Cliquez sur votre template "Entre Prieur - Alerte Affiche"
-3. Vous verrez `Template ID` en haut - copier-le
-
-#### **Public Key :**
-1. Allez dans **"Account"** (en bas à gauche)
-2. Vous verrez `Public Key` - copier-le
-
----
-
-### **Étape 5 : Configurer le fichier JavaScript**
-
-Ouvrez le fichier : `js/admin.js`
-
-Cherchez les 3 lignes en haut :
+Ouvrez **`js/script.js`** et remplacez les 2 lignes au début du fichier (lignes 11-12) :
 
 ```javascript
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+const FORMSPREE_CANDIDATURE_URL = 'https://formspree.io/f/xxxxxxxxx';  // ← Collez l'URL du formulaire candidatures
+const FORMSPREE_CONTACT_URL = 'https://formspree.io/f/yyyyyyyyy';     // ← Collez l'URL du formulaire contact
 ```
 
-Remplacez les valeurs :
+### Étape 5 : Tester
 
-```javascript
-const EMAILJS_SERVICE_ID = 'gmail_xxxxxxxxxx';          // Votre Service ID
-const EMAILJS_TEMPLATE_ID = 'template_xxxxxxxxxx';      // Votre Template ID
-const EMAILJS_PUBLIC_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxx';  // Votre Public Key
-```
+1. Ouvrez `rejoindre.html` dans le navigateur
+2. Remplissez le formulaire
+3. Cliquez sur "Envoyer ma candidature"
+4. Vous devriez recevoir un email
+5. Les données sont aussi sauvegardées en localStorage
 
-**Sauvegardez le fichier.**
+## ✅ Vérification
 
-✅ **Configuration terminée !**
+- ✅ Vous avez créé un compte Formspree
+- ✅ Vous avez 2 formulaires (candidatures + contact)
+- ✅ Vous avez copié les 2 URLs Formspree
+- ✅ Vous avez rempli `js/script.js` lignes 11-12
 
----
+## 🚨 Si ça ne marche pas
 
-## 🧪 Test
+### Les données sont sauvegardées localement
 
-1. Allez sur `admin.html`
-2. Sélectionnez un événement
-3. Uploadez une affiche
-4. Cliquez sur "Marquer Prêt + Envoyer Alerte"
-5. Vérifiez votre email (`danickarcel@gmail.com` et `monequilibre242@gmail.com`)
+Même si Formspree ne fonctionne pas :
+- Les données sont **toujours** sauvegardées en **localStorage**
+- Allez dans **DevTools (F12) → Application → Local Storage**
+- Vous trouverez :
+  - `applications` - Toutes les candidatures
+  - `contactMessages` - Tous les messages de contact
 
-Vous devriez recevoir l'email en quelques secondes ! 📧
+### Dépannage
 
----
+1. **Vérifiez que les URLs sont correctes**
+   - Copier exactement depuis Formspree
+   - Doit commencer par `https://formspree.io/f/`
 
-## ⚠️ Troubleshooting
+2. **Vérifiez la console** (F12)
+   - Ouvrez la console pour voir les messages d'erreur
+   - Les emails devraient logger : ✅ Email envoyé via Formspree
 
-### **Les emails ne s'envoient pas**
+3. **Vérifiez votre email**
+   - Vérifiez vos spams/promotions
+   - Confirmez votre email dans Formspree si demandé
 
-**Problème 1 : Les clés ne sont pas bonnes**
-- Vérifiez que vous avez copié les bonnes valeurs
-- Les clés sont sensibles à la casse (majuscules/minuscules)
+## 🆓 Limite Gratuite Formspree
 
-**Problème 2 : Gmail n'est pas autorisé**
-- Dans Gmail, allez dans Paramètres > Sécurité
-- Activez "Autoriser les apps non sécurisées"
+Formspree offre **50 soumissions gratuites par mois**. C'est largement suffisant pour un petit site !
 
-**Problème 3 : Service non activé**
-- Allez dans EmailJS > Email Services
-- Vérifiez que le statut est "Connected" (vert)
-
-### **Comment tester sans EmailJS ?**
-
-Si vous n'avez pas configuré EmailJS, le système passe automatiquement en mode "Simulation" :
-- L'interface fonctionne normalement
-- Les logs console affichent les infos
-- Parfait pour tester avant de configurer les vrais emails
-
----
-
-## 💡 Astuces
-
-### **Limite gratuite**
-- 200 emails/mois = ~6-7 emails par jour
-- Pour Entre'Prieur (1 événement/mois) c'est **largement suffisant**
-
-### **Personnalisation**
-- Vous pouvez modifier le template EmailJS pour changer le design
-- Les variables `{{}}` doivent rester telles quelles
-
-### **Monitoring**
-- Allez dans **"Statistics"** pour voir les emails envoyés/reçus
-
----
-
-## 📞 Support
-
-- **EmailJS Support** : https://www.emailjs.com/docs/
-- **Notre équipe** : danickarcel@gmail.com
-
----
-
-**Besoin d'aide ? N'hésitez pas à nous contacter !** 🙏
+Si vous en avez besoin de plus, vous pouvez faire un upgrade (€5/mois pour illimité).

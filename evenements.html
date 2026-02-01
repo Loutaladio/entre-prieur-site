@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Nos événements - Brunchs Entre'Prieur pour entrepreneurs chrétiens">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>Événements - Entre'Prieur</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
 </head>
 <body>
     <!-- ============ EN-TÊTE NAVIGATION ============ -->
@@ -83,7 +85,7 @@
                     <!-- AFFICHE GRANDE & DOMINANTE -->
                     <div class="event-poster-section">
                         <div class="poster-wrapper">
-                            <img src="img/Affiche28Janvier.png" alt="Brunch Entre'Prieur 28 février 2026" loading="lazy" class="poster-image">
+                            <img src="img/Affiche28Janvier.jpg" alt="Brunch Entre'Prieur 28 février 2026" loading="lazy" class="poster-image">
                             <div class="poster-badge"><i class="fas fa-image"></i> Affiche officielle</div>
                         </div>
                     </div>
@@ -135,11 +137,51 @@
                         </div>
 
                         <!-- CTA PROMINENTE -->
-                        <a href="rejoindre.html" class="cta-button cta-primary">
+                        <a href="#brunchForm" class="cta-button cta-primary">
                             <span class="cta-text">S'inscrire Maintenant</span>
                             <span class="cta-icon"><i class="fas fa-arrow-right"></i></span>
                         </a>
                         <p class="cta-hint"><i class="fas fa-bolt"></i> Places limitées - Inscription rapide & gratuite</p>
+
+                        <!-- FORMULAIRE D'INSCRIPTION AU BRUNCH (pré-inscription) -->
+                        <div class="form-section" style="margin-top:1.5rem;">
+                            <h3>Pré-inscription au Brunch</h3>
+                            <form id="brunchForm" class="application-form-modern" action="https://formspree.io/f/mojlqkpy" method="POST" novalidate>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="fullName">Nom complet</label>
+                                        <input type="text" id="fullName" name="fullName" placeholder="Votre nom" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" id="email" name="email" placeholder="vous@email.com" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="phone">Téléphone</label>
+                                        <input type="tel" id="phone" name="phone" placeholder="+242 06 86 73 747">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="seats">Nombre de places</label>
+                                        <select id="seats" name="seats">
+                                            <option value="1">1 place</option>
+                                            <option value="2">2 places</option>
+                                            <option value="3">3 places</option>
+                                            <option value="4">4 places</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="note">Note (optionnelle)</label>
+                                    <textarea id="note" name="note" rows="2" placeholder="Besoin particulier ?"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Pré-inscription</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -330,7 +372,7 @@
                     <h4>Nous contacter</h4>
                     <ul class="footer-links">
                         <li><a href="mailto:monequilibre242@gmail.com">monequilibre242@gmail.com</a></li>
-                        <li><a href="tel:068673747">068 673 747</a></li>
+                        <li><a href="tel:00242 06 867 37 47">00242 06 867 37 47</a></li>
                     </ul>
                 </div>
 
@@ -359,6 +401,9 @@
                         </a>
                         <a href="https://www.youtube.com/@DGClubOfficiel" class="partner-logo" title="DG Club">
                             <img src="img/Logo_DG_Club.png" alt="DG Club">
+                        </a>
+                        <a href="#" class="partner-logo" title="Digiart Pro">
+                            <img src="img/logo digiart pro.png" alt="Digiart Pro">
                         </a>
                     </div>
                 </div>
@@ -401,7 +446,7 @@
                 
                 eventCard.innerHTML = `
                     <div class="calendar-event-poster">
-                        ${event.posterBase64 ? `<img src="${event.posterBase64}" alt="Affiche ${event.edition}" loading="lazy">` : `<div class="poster-placeholder">📸</div>`}
+                        ${event.posterBase64 ? `<img src="${event.posterBase64}" alt="Affiche ${event.edition}" loading="lazy">` : `<div class="poster-placeholder"><i class="fas fa-image"></i></div>`}
                     </div>
                     <div class="calendar-month">${event.month}</div>
                     <div class="calendar-date">${event.date}</div>

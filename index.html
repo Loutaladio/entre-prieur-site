@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Entre'Prieur - Rendez-vous des entrepreneurs chrétiens. Quand la foi guide l'action.">
     <meta name="theme-color" content="#1e3a8a">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>Entre'Prieur - Accueil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://www.instagram.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" defer>
 </head>
 <body>
     <!-- ============ EN-TÊTE NAVIGATION ============ -->
@@ -32,12 +36,12 @@
                 </button>
 
                 <!-- Menu de Navigation -->
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html" class="nav-link active">Accueil</a></li>
-                    <li><a href="vision.html" class="nav-link">Vision</a></li>
-                    <li><a href="evenements.html" class="nav-link">Événements</a></li>
-                    <li><a href="rejoindre.html" class="nav-link">Rejoindre</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <ul class="nav-menu" id="navMenu" >
+                    <li><a href="index.html" class="nav-link active" >Accueil</a></li>
+                    <li><a href="vision.html" class="nav-link" >Vision</a></li>
+                    <li><a href="evenements.html" class="nav-link" >Événements</a></li>
+                    <li><a href="rejoindre.html" class="nav-link" >Rejoindre</a></li>
+                    <li><a href="contact.html" class="nav-link" >Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -64,7 +68,7 @@
                 <!-- Affiche de l'événement (gauche) -->
                 <div class="event-poster-side">
                     <div class="poster-container">
-                        <img id="eventPoster" src="img/Affiche28Janvier.png" alt="Affiche de l'événement" class="event-poster-image">
+                        <img id="eventPoster" src="img/Affiche28Janvier.jpg" alt="Affiche de l'événement" class="event-poster-image" loading="lazy">
                         <div class="poster-overlay"></div>
                     </div>
                 </div>
@@ -144,7 +148,7 @@
                         </div>
 
                         <!-- CTA Button -->
-                        <a href="rejoindre.html" class="btn btn-primary btn-cta-event">
+                        <a href="evenements.html#brunchForm" class="btn btn-primary btn-cta-event">
                             <span>S'inscrire maintenant</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -211,13 +215,13 @@
             <h2 class="section-title">Affiches Instagram</h2>
             <div class="social-posts-grid">
                 <a href="https://www.instagram.com/p/DTpVCqDCMHs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="social-post-card">
-                    <img src="img/Affiches-de-posts1.jpg" alt="Affiche Instagram 1" />
+                    <img src="img/Affiches-de-posts1.jpg" alt="Affiche Instagram 1" loading="lazy" />
                 </a>
                 <a href="https://www.instagram.com/p/DTpVCqDCMHs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="social-post-card">
-                    <img src="img/Affiches-de-posts3.jpg" alt="Affiche Instagram 3" />
+                    <img src="img/Affiches-de-posts3.jpg" alt="Affiche Instagram 3" loading="lazy" />
                 </a>
                 <a href="https://www.instagram.com/p/DTpVCqDCMHs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="social-post-card">
-                    <img src="img/FLYERS.jpg" alt="Affiche Instagram 2" />
+                    <img src="img/FLYERS.jpg" alt="Affiche Instagram 2" loading="lazy" />
                 </a>
             </div>
         </div>
@@ -282,7 +286,7 @@
             <div class="partners-grid">
                 <a href="https://www.instagram.com/mon.equilibre_?igsh=MW03MzV4MjlycXQyOQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="partner-card">
                     <div class="partner-logo-container">
-                        <img src="img/LOGO_DE_MON_EQUILIBRE.png" alt="Mon Équilibre - Partenaire Principal">
+                        <img src="img/LOGO_DE_MON_EQUILIBRE.png" alt="Mon Équilibre - Partenaire Principal" loading="lazy">
                     </div>
                     <h3>Mon Équilibre</h3>
                     <p>Initiative dédiée à l'équilibre holistique des entrepreneurs africains.</p>
@@ -309,6 +313,17 @@
                     </div>
                     <h3>DG Club</h3>
                     <p>Communauté de développeurs et leaders technologiques africains.</p>
+                    <div class="partner-cta">
+                        <i class="fas fa-arrow-up-right"></i> Découvrir
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" rel="noopener" class="partner-card">
+                    <div class="partner-logo-container">
+                        <img src="img/logo digiart pro.png" alt="DigiArt Pro - Partenaire" loading="lazy">
+                    </div>
+                    <h3>DigiArt Pro</h3>
+                    <p>Institut est un centre de formation professionnelle dédié aux métiers du digital.</p>
                     <div class="partner-cta">
                         <i class="fas fa-arrow-up-right"></i> Découvrir
                     </div>
@@ -342,7 +357,7 @@
                     <p class="footer-credit">Projet porté par <strong>Mon Équilibre</strong></p>
                     <div style="background: rgba(255, 253, 253, 0.527); border-radius: 6px; width: 100px;" class="partners-logos">
                     <a href="https://www.instagram.com/mon.equilibre_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="partner-logo" title="Mon Équilibre">
-                            <img class="img" src="img/LOGO_DE_MON_EQUILIBRE.png" alt="Mon Équilibre">
+                            <img class="img" src="img/LOGO_DE_MON_EQUILIBRE.png" alt="Mon Équilibre" loading="lazy">
                     </a>
                     </div>
 
@@ -364,7 +379,7 @@
                     <h4>Nous contacter</h4>
                     <ul class="footer-links">
                         <li><a href="mailto:monequilibre242@gmail.com">monequilibre242@gmail.com</a></li>
-                        <li><a href="tel:068673747">068 673 747</a></li>
+                        <li><a href="tel:00242 06 867 37 47">00242 06 867 37 47</a></li>
                     </ul>
                 </div>
 
@@ -386,13 +401,16 @@
                     <h4>Partenaires</h4>
                     <div style="background: white; border-radius: 6px; display: flex; justify-content: center; align-items: center;"  class="partners-logos">
                         <a href="https://www.instagram.com/mon.equilibre_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="partner-logo" title="Mon Équilibre">
-                            <img src="img/LOGO_DE_MON_EQUILIBRE.png" alt="Mon Équilibre">
+                            <img src="img/LOGO_DE_MON_EQUILIBRE.png" alt="Mon Équilibre" loading="lazy">
                         </a>
-                        <a href="" class="partner-logo" title="MA'S">
-                            <img src="img/LogoMASnew_Parters.png" alt="MA'S">
+                        <a href="https://www.instagram.com/ma_s242?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="partner-logo" title="MA'S">
+                            <img src="img/LogoMASnew_Parters.png" alt="MA'S" loading="lazy">
                         </a>
                         <a href="https://www.youtube.com/@DGClubOfficiel" class="partner-logo" title="DG Club">
-                            <img src="img/Logo_DG_Club.png" alt="DG Club">
+                            <img src="img/Logo_DG_Club.png" alt="DG Club" loading="lazy">
+                        </a>
+                        <a href="#" class="partner-logo" title="DigiArt Pro">
+                            <img src="img/logo%20digiart%20pro.png" alt="DigiArt Pro" loading="lazy">
                         </a>
                     </div>
                 </div>
@@ -402,16 +420,17 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Entre'Prieur. Tous droits réservés.</p>
                 <p>Développé par <strong>DG Club</strong></p>
+                <p><a href="admin.html">admin</a></p>
             </div>
         </div>
     </footer>
 
     <!-- Inclusion des icones SVG -->
-    <link rel="stylesheet" href="icons.svg">
+    <link rel="preload" href="icons.svg" as="image" type="image/svg+xml">
 
     <!-- Scripts - Données événements -->
-    <script src="js/events-data.js"></script>
+    <script defer src="js/events-data.js"></script>
     <!-- Scripts - Main -->
-    <script src="js/script.js"></script>
+    <script defer src="js/script.js"></script>
 </body>
 </html>
