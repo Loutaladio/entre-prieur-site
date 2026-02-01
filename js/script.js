@@ -9,7 +9,7 @@
 // ========================================
 // Formulaire Formspree simple et gratuit
 // Allez sur https://formspree.io/ et créez un compte
-const FORMSPREE_CANDIDATURE_URL = 'https://formspree.io/f/mdadolov';  // Candidatures & Adhésion
+const FORMSPREE_CANDIDATURE_URL = 'https://formspree.io/f/xgozkozq';  // Candidatures & Adhésion
 
 // ========================================
 // INITIALISATION GLOBALE
