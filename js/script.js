@@ -109,6 +109,8 @@ function initVisitCounter() {
     let visitCount = localStorage.getItem('visitCount') || 0;
     visitCount = parseInt(visitCount) + 1;
     localStorage.setItem('visitCount', visitCount);
+    if (visitCounter) visitCounter.textContent = visitCount;
+}
     
 /**
  * Récupère un lien vers le rapport Google Analytics (pour l'admin)

@@ -11,10 +11,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://www.instagram.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" defer>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" defer>
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z43JJQ6R6Z"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);} 
+            gtag('js', new Date());
+            gtag('config', 'G-Z43JJQ6R6Z');
+        </script>
 </head>
 <body>
     <!-- ============ EN-TÊTE NAVIGATION ============ -->
@@ -37,7 +45,7 @@
 
                 <!-- Menu de Navigation -->
                 <ul class="nav-menu" id="navMenu" >
-                    <li style="border-bottom: solid 3px #f1c40f;"><a href="index.html" class="nav-link active" >Accueil</a></li>
+                    <li style="border-bottom: solid 3px #f1c40f; @media (max-width: 768px) {background-color: #f1c40f;}"><a href="index.html" class="nav-link active" >Accueil</a></li>
                     <li><a href="vision.html" class="nav-link" >Vision</a></li>
                     <li><a href="evenements.html" class="nav-link" >Événements</a></li>
                     <li><a href="rejoindre.html" class="nav-link" >Rejoindre</a></li>
