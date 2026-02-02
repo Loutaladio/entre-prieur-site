@@ -146,7 +146,7 @@
                         <!-- FORMULAIRE D'INSCRIPTION AU BRUNCH (pré-inscription) -->
                         <div class="form-section" style="margin-top:1.5rem;">
                             <h3>Pré-inscription au Brunch</h3>
-                            <form id="brunchForm" class="application-form-modern" data-netlify="true" name="Pré-inscription au Brunch" method="POST" novalidate>
+                            <form id="brunchForm" class="application-form-modern" data-netlify="true" name="Pre-inscription_au_Brunch" method="POST" novalidate>
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="fullName">Nom complet</label>
@@ -178,7 +178,13 @@
                                     <label for="note">Note (optionnelle)</label>
                                     <textarea id="note" name="note" rows="2" placeholder="Besoin particulier ?"></textarea>
                                 </div>
-
+                                    <!-- Champ anti-spam Netlify -->
+                                    <p style="display: none;">
+                                    <label>
+                                        Ne remplissez pas ceci si vous êtes humain : 
+                                        <input name="bot-field">
+                                    </label>
+                                    </p>    
                                 <button type="submit" class="btn btn-primary">Pré-inscription</button>
                             </form>
                         </div>
