@@ -146,7 +146,7 @@
                         <!-- FORMULAIRE D'INSCRIPTION AU BRUNCH (pré-inscription) -->
                         <div class="form-section" style="margin-top:1.5rem;">
                             <h3>Pré-inscription au Brunch</h3>
-                            <form id="brunchForm" class="application-form-modern" data-netlify="true" name="Pre-inscription_au_Brunch" method="POST" novalidate>
+                            <form id="brunchForm" class="application-form-modern" name="Pre-inscription_au_Brunch" action="https://formspree.io/f/xwvqndow" method="POST" novalidate>
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="fullName">Nom complet</label>
@@ -185,7 +185,8 @@
                                         <input name="bot-field">
                                     </label>
                                     </p>    
-                                <button type="submit" class="btn btn-primary">Pré-inscription</button>
+                                    <input type="hidden" name="_subject" value="Pré-inscription au Brunch Entre'Prieur">
+                                <button type="submit" value="Send Message" class="btn btn-primary">Pré-inscription</button>
                             </form>
                         </div>
                     </div>
@@ -423,12 +424,13 @@
         </div>
     </footer>
 
-    <!-- Inclusion des icones SVG -->
-    <link rel="stylesheet" href="icons.svg">
+    <!-- Inclusion des icones SVG (préchargement correct + fallback invisible) -->
+    <link rel="preload" href="icons.svg" as="image" type="image/svg+xml">
+    <img src="icons.svg" alt="" aria-hidden="true" style="display:none;" />
 
     <!-- Scripts -->
     <script src="js/events-data.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
     <script>
         /**
          * DYNAMIQUE CALENDRIER ÉVÉNEMENTS

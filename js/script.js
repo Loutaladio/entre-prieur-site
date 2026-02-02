@@ -1,4 +1,5 @@
-/**
+/*
+ *
  * Entre'Prieur - Script Principal
  * Gestion des interactions, animations et fonctionnalités JavaScript
  * ==================================================================
@@ -10,6 +11,13 @@
 // Formulaire Formspree simple et gratuit
 // Allez sur https://formspree.io/ et créez un compte
 const FORMSPREE_CANDIDATURE_URL = 'https://formspree.io/f/xgozkozq';  // Candidatures & Adhésion
+
+// ========================================
+// CONFIGURATION GOOGLE ANALYTICS
+// ========================================
+// Google Analytics pour un suivi professionnel et rapports complets
+// Clé: G-XXXXXXXXXX (à remplir après création de propriété GA4 sur console.google.com)
+const GA_MEASUREMENT_ID = 'G-Z43JJQ6R6Z'; // ID GA4 Entre'Prieur
 
 // ========================================
 // INITIALISATION GLOBALE
@@ -90,25 +98,50 @@ function updateActiveLink() {
 // ========================================
 
 /**
- * Initialise et gère le compteur de visites avec localStorage
+ * Initialise et gère le compteur de visites avec localStorage + Google Analytics
+ * Le vrai compteur global vient de Google Analytics pour rapports complets
  */
 function initVisitCounter() {
     const visitCounter = document.getElementById('visitCount');
     if (!visitCounter) return;
 
-    // Récupérer le nombre actuel de visites
+    // Fallback local (localStorage) si GA pas disponible
     let visitCount = localStorage.getItem('visitCount') || 0;
     visitCount = parseInt(visitCount) + 1;
-
-    // Sauvegarder le nouveau nombre
     localStorage.setItem('visitCount', visitCount);
-
-    // Afficher le nombre
-    visitCounter.textContent = visitCount.toLocaleString('fr-FR');
-
-    // Optionnel: Ajouter du contenu analytique
-    console.log(`👤 Vous êtes visiteur n°${visitCount}`);
+    
+/**
+ * Récupère un lien vers le rapport Google Analytics (pour l'admin)
+ * À utiliser depuis la console ou l'interface admin
+ */
+function getAnalyticsReportLink() {
+    return `https://analytics.google.com/analytics/web/`;
 }
+
+/**
+ * Affiche un guide pour l'export de rapport mensuel
+ */
+function exportMonthlyReport() {
+    console.log(`%c📊 EXPORT RAPPORT MENSUEL`, 'font-size:16px; font-weight:bold; color:#1e3a8a;');
+    console.log(`
+    1. Accédez à: https://analytics.google.com
+    2. Sélectionnez votre propriété
+    3. Allez à "Rapports" → "Acquisition" ou "Engagement"
+    4. Filtrez par période mensuelle
+    5. Cliquez sur "Exporter" → CSV/Google Sheets
+    
+    Métriques clés à suivre:
+    - Utilisateurs totaux
+    - Nouvelles sessions
+    - Engagement (temps de session)
+    - Taux de rebond
+    - Principales pages
+    `);
+}
+
+// Exposer les fonctions pour utilisation dans la console
+window.getAnalyticsReportLink = getAnalyticsReportLink;
+window.exportMonthlyReport = exportMonthlyReport;
 
 // ========================================
 // COMPTE À REBOURS

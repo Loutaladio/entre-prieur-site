@@ -347,9 +347,11 @@
     </footer>
 
     <!-- Inclusion des icones SVG -->
-    <link rel="stylesheet" href="icons.svg">
+    <!-- Inclusion des icones SVG (préchargement correct + fallback invisible) -->
+    <link rel="preload" href="icons.svg" as="image" type="image/svg+xml">
+    <img src="icons.svg" alt="" aria-hidden="true" style="display:none;" />
 
     <!-- Scripts -->
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

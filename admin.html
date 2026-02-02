@@ -501,6 +501,21 @@
                     <li><i class="fas fa-envelope"></i> monequilibre242@gmail.com (Mon Équilibre)</li>
                 </ul>
             </div>
+
+            <!-- STATS VISITEURS & ANALYTICS -->
+            <div class="email-info" style="background: linear-gradient(135deg, #e8f4f8, #d1e7f0); border-left-color: #0288d1;">
+                <h4><i class="fas fa-chart-line"></i> Statistiques Visiteurs</h4>
+                <ul class="email-list">
+                    <li><i class="fas fa-users"></i> Visiteurs (localStorage): <strong id="localVisitorCount">--</strong></li>
+                    <li>
+                        <i class="fas fa-external-link-alt" style="color: #0288d1;"></i> 
+                        <strong><a href="https://analytics.google.com" target="_blank" style="color: #0288d1; text-decoration: none;">Voir Google Analytics →</a></strong>
+                    </li>
+                    <li style="font-size: 0.9rem; margin-top: 10px; color: #0288d1;">
+                        💡 Conseil: Lance <code style="background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 3px;">exportMonthlyReport()</code> dans la console pour obtenir le guide d'export
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -508,5 +523,11 @@
     <script src="js/events-data.js"></script>
     <script src="https://cdn.emailjs.com/sdk/3.10.0/email.min.js"></script>
     <script src="js/admin.js"></script>
-</body>
-</html>
+    <script defer>
+        // Afficher le compteur local dans la page admin
+        document.addEventListener('DOMContentLoaded', function() {
+            const localCount = localStorage.getItem('visitCount') || '0';
+            const counter = document.getElementById('localVisitorCount');
+            if (counter) counter.textContent = localCount;
+        });
+    </script>
